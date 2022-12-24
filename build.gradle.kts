@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("jvm") version "1.8.0-RC2"
     kotlin("plugin.serialization") version "1.8.0-RC2"
@@ -14,4 +16,8 @@ dependencies {
     testImplementation(kotlin("test"))
     testImplementation(kotlin("test-junit"))
     testImplementation("junit:junit:4.13.2")
+}
+
+tasks.withType<KotlinCompile>().configureEach {
+    kotlinOptions.languageVersion = "1.9"
 }
